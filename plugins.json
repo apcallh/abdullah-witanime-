@@ -1,0 +1,21 @@
+[
+    {
+        "fileHash": "sha256-823f2e5f6bf8e7a390f964fa8681685e4f280df46dc4dcd55b3256022ddbb73e",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/apcallh/abdullah-witanime-",
+        "fileSize": 11495,
+        "status": 1,
+        "language": "ar",
+        "authors": [
+            "Abdullah"
+        ],
+        "tvTypes": [
+            "Anime"
+        ],
+        "version": 3,
+        "internalName": "Witanime",
+        "description": "مزود Witanime للبحث عن الأنمي العربي وعرض التفاصيل والحلقات وروابط المشاهدة المتاحة.",
+        "url": "https://raw.githubusercontent.com/apcallh/abdullah-witanime-/refs/heads/builds/Witanime.cs3",
+        "name": "Witanime"
+    }
+]

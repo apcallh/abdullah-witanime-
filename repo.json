@@ -1,0 +1,8 @@
+{
+  "name": "Abdullah Anime Repository",
+  "description": "My CloudStream anime plugin",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/apcallh/abdullah-witanime-/refs/heads/builds/plugins.json"
+  ]
+}
