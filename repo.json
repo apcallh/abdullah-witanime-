@@ -3,6 +3,6 @@
   "description": "My CloudStream anime plugin",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/apcallh/abdullah-witanime-/builds/plugins.json"
+    "https://raw.githubusercontent.com/apcallh/abdullah-witanime-/refs/heads/builds/plugins.json"
   ]
 }

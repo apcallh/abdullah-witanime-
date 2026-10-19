@@ -47,6 +47,15 @@ jobs:
           ./gradlew make makePluginsJson --stacktrace --refresh-dependencies
           find "$GITHUB_WORKSPACE/src" -type f -name '*.cs3' -exec cp {} "$GITHUB_WORKSPACE/builds/" \;
           cp build/plugins.json $GITHUB_WORKSPACE/builds
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("../builds/plugins.json")
+          entries = json.loads(path.read_text())
+          for entry in entries:
+              entry["url"] = entry["url"].replace("/builds/", "/refs/heads/builds/")
+          path.write_text(json.dumps(entries, ensure_ascii=False, indent=4) + "\n")
+          PY
           cp repo.json $GITHUB_WORKSPACE/builds/repo.json
 
       - name: Push builds
