@@ -1,5 +1,5 @@
 // use an integer for version numbers
-version = 2
+version = 3
 
 android {
     namespace = "com.example"
@@ -11,6 +11,7 @@ cloudstream {
 
     description = "مزود Witanime للبحث عن الأنمي العربي وعرض التفاصيل والحلقات وروابط المشاهدة المتاحة."
     authors = listOf("Abdullah")
+    language = "ar"
 
     /**
     * Status int as the following:
