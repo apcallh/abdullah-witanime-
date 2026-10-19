@@ -7,12 +7,14 @@ import com.lagradost.cloudstream3.Episode
 import com.lagradost.cloudstream3.MainAPI
 import com.lagradost.cloudstream3.SearchResponse
 import com.lagradost.cloudstream3.SubtitleFile
-import com.lagradost.cloudstream3.ExtractorLink
 import com.lagradost.cloudstream3.TvType
+import com.lagradost.cloudstream3.app
 import com.lagradost.cloudstream3.addDubStatus
 import com.lagradost.cloudstream3.addEpisodes
 import com.lagradost.cloudstream3.newAnimeLoadResponse
+import com.lagradost.cloudstream3.newEpisode
 import com.lagradost.cloudstream3.newAnimeSearchResponse
+import com.lagradost.cloudstream3.utils.ExtractorLink
 import com.lagradost.cloudstream3.utils.loadExtractor
 import org.jsoup.nodes.Element
 
@@ -57,12 +59,11 @@ class ExampleProvider : MainAPI() {
         val tags = document.select(".TaxContent a[href*=/genre/]").map { it.text().trim() }.distinct()
         val episodes = document.select(".EpisodesList a").mapNotNull { link ->
             val number = episodeNumber(link) ?: return@mapNotNull null
-            Episode(
-                data = link.absUrl("href"),
-                name = "الحلقة $number",
-                season = 1,
-                episode = number.toIntOrNull(),
-            )
+            newEpisode(link.absUrl("href")) {
+                name = "الحلقة $number"
+                season = 1
+                episode = number.toIntOrNull()
+            }
         }.distinctBy { it.data }
 
         return newAnimeLoadResponse(title, url, TvType.Anime, comingSoonIfNone = false) {
